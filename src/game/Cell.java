@@ -1,15 +1,18 @@
 package game;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-
 public class Cell {
-    public static void main(String[] args) {
-        
+    int x;
+    int y;
+    public Cell(int x, int y){
+        this.x = x;
+        this.y = y;
     }
 
-    public static int[] Birth(int x, int y){
+    public int getX() {
+        return x;
+    }
 
-        return new int[] {x,y};
+    public int getY() {
+        return y;
     }
 }

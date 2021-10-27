@@ -2,20 +2,27 @@ package game;
 
 import org.junit.*;
 
+import java.util.ArrayList;
+
 public class TestBoard {
 
-    @Test
-    public void testPrintXAxisOnStartWithCell(){
-        Cell startCell = new Cell(1,1);
-        int length = 5;
-        Assert.assertEquals(". * . . . ", Board.printXAxisOnStart(length, startCell, true));
+    private ArrayList<Cell> cells = new ArrayList<Cell>();
+
+    @Before
+    public void init() {
+        Cell c1 = new Cell(1, 1);
+        Cell c2 = new Cell(2, 1);
+        cells.add(c1);
+        cells.add(c2);
     }
     @Test
-    public void testPrintXAxisOnStartWithOutCell(){
-        Cell startCell = new Cell(1,1);
+    public void testPrintXAxisOnStartWithMultipleCells(){
         int length = 5;
-        Assert.assertEquals(". . . . . ", Board.printXAxisOnStart(length, startCell, false));
+        Assert.assertEquals(". * * . . ", Board.printXAxisOnStart(length, cells));
     }
-
-
+    @Test
+    public void testPrintXAxisOnStartWithOutCells(){
+        int length = 5;
+        Assert.assertEquals(". . . . . ", Board.printXAxisOnStart(length, new ArrayList<>()));
+    }
 }

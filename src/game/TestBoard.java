@@ -25,4 +25,14 @@ public class TestBoard {
         int length = 5;
         Assert.assertEquals(". . . . . ", Board.printXAxisOnStart(length, new ArrayList<>()));
     }
+    @Test
+    public void testPrintXAxisOnStartWithLength0(){
+        int length = 0;
+        Assert.assertEquals("", Board.printXAxisOnStart(length, cells));
+    }
+    @Test
+    public void testPrintXAxisOnStartWithNegativeLength(){
+        int length = -1;
+        Assert.assertEquals("Please use a number larger than 0.", Board.printXAxisOnStart(length, cells));
+    }
 }

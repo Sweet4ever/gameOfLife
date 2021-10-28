@@ -8,6 +8,7 @@ public class Board {
     }
 
     public static String printXAxisOnStart(int length, ArrayList<Cell> cells){
+        if(length <0){return "Please use a number larger than 0.";}
         String xAxis = "";
         ArrayList<Integer> x = new ArrayList<>();
         for (Cell cell: cells) {
@@ -24,7 +25,7 @@ public class Board {
     }
 
     public static void PrintBoard(int xSize, int ySize, ArrayList<Cell> cells){
-        String xAxis ="";
+        ArrayList<String> xAxis = new ArrayList<>();
         for (int i = 0; i < ySize; i++) {
             ArrayList<Cell> cellOnYAxis = new ArrayList<>();
             for(Cell cell: cells) {
@@ -32,10 +33,10 @@ public class Board {
                     cellOnYAxis.add(cell);
                 }
             }
-            for(int j= 0; j < xSize; j++){
-                xAxis = printXAxisOnStart(xSize, cellOnYAxis);
-            }
-            System.out.println(xAxis);
+            xAxis.add(printXAxisOnStart(xSize, cellOnYAxis));
+        }
+        for (String row: xAxis) {
+            System.out.println(row);
         }
     }
 

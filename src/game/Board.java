@@ -38,9 +38,6 @@ public class Board {
         for (String row: xAxis) {
             System.out.println(row);
         }
-    }
-
-    public static void Update(Cell[] cells){
-        System.out.println(cells);
+        System.out.println("<------------->");
     }
 }
